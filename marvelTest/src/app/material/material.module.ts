@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   exports: [
@@ -18,7 +20,8 @@ import { MatInputModule } from '@angular/material/input';
     MatListModule,
     MatTabsModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ],
 })
 export class MaterialModule { }
