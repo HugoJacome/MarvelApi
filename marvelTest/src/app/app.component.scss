@@ -1,26 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
+.header {
+    overflow: hidden;
+    padding: 20px 10px;
+    font-size: 10px;
 }
 
-body {
-    margin: 0px;
-    padding: 0px;
-}
 .main {
     display: flex;
     flex-flow: column;
     height: 100%;
+    background-color: #999999;
 }
 
 .main .row.header {
     flex: 0 1 auto;
+    padding: 0;
 }
 
 .main .row.content {
     flex: 1 1 auto;
+    padding: 0;
 }
 
 .box .row.footer {
     flex: 0 1 40px;
+    padding: 0;
 }
