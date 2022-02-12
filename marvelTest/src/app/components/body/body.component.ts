@@ -8,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 export class BodyComponent implements OnInit {
 
   constructor() { }
-  
+  cards = [
+    {
+      title: 'superhero',
+    },
+    {
+      title: 'superhero',
+    },
+    {
+      title: 'superhero',
+    },
+    {
+      title: 'superhero',
+    },
+    {
+      title: 'superhero',
+    }
+  ];
   ngOnInit(): void {
   }
 
