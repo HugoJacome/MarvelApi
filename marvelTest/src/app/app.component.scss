@@ -17,6 +17,8 @@
 }
 
 .main .row.content {
+    display: -webkit-flex;
+    display: flex;
     flex: 1 1 auto;
     padding: 0;
 }
