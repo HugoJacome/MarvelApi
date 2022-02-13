@@ -1,6 +1,6 @@
 <form id="searchField" [formGroup]="form" (ngSubmit)="submit()" class="phi-theme">
     <p>
-        <mat-form-field appearance="outline">
+        <mat-form-field class="field" appearance="outline">
             <div style="align-self: center">
                 <input class="input-search" matInput  formControlName="query" autocomplete="off"
                     placeholder="Ingrese un valor para la búsqueda">
@@ -8,7 +8,7 @@
             <div>
                 <button class="search-icon-suffix;" style="bottom: 1px;" type="submit" mat-icon-button
                     [disableRipple]="true" matSuffix>
-                    <mat-icon translate="no" color="accent">search</mat-icon>
+                    <mat-icon translate="no" color="white">search</mat-icon>
                 </button>
             </div>
         </mat-form-field>

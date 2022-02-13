@@ -1,35 +1,38 @@
 :host {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+p {
+  margin-top: 20px;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 525px;
+  height: 40px;
+}
+.input-search {
+  padding-bottom: 0px;
+  padding-left: 12px;
+  width: 465px;
+}
+.field {
+  background-color: gray;
+  padding: 0%;
+}
+#searchField ::ng-deep .mat-form-field-infix {
+  display: flex;
+  padding: inherit;
+  position: static;
+  border-top-width: 0px;
+  margin-top: 0px;
+}
+#searchField ::ng-deep .mat-form-field-flex {
+  padding-left: 0px;
+  .mat-form-field-outline {
+    top: 0px;
   }
-  p{
-      margin-top: 20px;
-  }
-  .mat-form-field {
-    width: 100%;
-    min-width: 525px;
-    height: 55px;
-  }
-  .input-search {
-    padding-bottom: 0px;
-    padding-left: 12px;
-    width: 465px;
-  }
-  #searchField ::ng-deep .mat-form-field-infix {
-    display: flex;
-    padding: inherit;
-    position: static;
-    border-top-width: 0px;
-    margin-top: 0px;
-  }
-  #searchField ::ng-deep .mat-form-field-flex {
-    padding-left: 0px;
-    .mat-form-field-outline {
-      top: 0px;
-    }
-  }
-  .itag {
-    color: hsl(30, 100%, 50%);
-    vertical-align: middle;
-  }
-  
+}
+.itag {
+  color: hsl(0, 0%, 0%);
+  vertical-align: middle;
+}

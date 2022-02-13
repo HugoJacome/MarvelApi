@@ -10,9 +10,12 @@ import { MarvelHeroesService } from 'src/app/service/marvel-heroes.service';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
-  index = 0;
-  page = 1;
+  start = 0;
+  end = 6;
+  index = 1;
+  maxPages = 0;
   queryPage = 1;
+  total = 0;
   cardsTotal: any;
   cards: any;
   constructor(private service: MarvelHeroesService) { }
@@ -21,41 +24,65 @@ export class BodyComponent implements OnInit {
   }
 
   onPrevious() {
-    if (this.index !== 6) {
-      this.index -= 6;
-      this.cards = this.cardsTotal.slice(this.index - 6, this.index);
+    if (this.index > 1) {
+      this.index -= 1;
+      this.start = (this.index * 6) - 6;
+      this.end = (this.index * 6);
+      this.cards = this.cardsTotal.slice(this.start, this.end);
+    } else {
+      this.cards = this.cardsTotal.slice(0, 6);
     }
   }
   onNext() {
-    if(this.page === 5){
-      this.getNextHeroes(this.queryPage);
-      this.queryPage +=1;
-      this.page = 1;
+    this.index += 1
+    if (this.maxPages < this.index) {
+      this.index -= 1
     }
-    this.index += 6;
-    this.page += 1;
-    this.cards = this.cardsTotal.slice(this.index, this.index + 6)
+    this.start = (this.index * 6) - 6;
+    this.end = (this.index * 6);
+    console.log(this.end);
+    console.log(this.cardsTotal.length);
+    if (this.end > this.cardsTotal.length) {
+      this.getNextHeroes(this.queryPage);
+      this.queryPage += 1;
+    }
+    this.cards = this.cardsTotal.slice(this.start, this.end)
   }
   searchHeroes(info: string) {
-    console.log(info)
+    this.service.getSearchMarvelHeroes(info)
+      .subscribe(response => {
+        this.restartPages()
+        this.total = response.data.total;
+        this.getMaxPages();
+        this.cardsTotal = response.data.results;
+        this.cards = this.cardsTotal.slice(this.start, this.end)
+      });
     // this.store.dispatch(new search.Load(info));
   }
-  getHeroes(){
+  getHeroes() {
     this.service.getMarvelHeroes()
-    .subscribe(response => {
-      if (this.index === 0) {
+      .subscribe(response => {
+        console.log(response);
+        this.total = response.data.total;
+        this.getMaxPages();
         this.cardsTotal = response.data.results;
-        this.cards = this.cardsTotal.slice(this.index, this.index + 6)
-      } else {
-        this.cardsTotal = this.cardsTotal.push(response.data.results);
-      }
-    });
+        this.cards = this.cardsTotal.slice(this.start, this.end)
+      });
   }
-  getNextHeroes(page: number){
+  getNextHeroes(page: number) {
     this.service.getNextMarvelHeroes(page)
-    .subscribe(response => {
-      this.cardsTotal = this.cardsTotal.concat(response.data.results);
-      this.cards = this.cardsTotal.slice(this.index, this.index + 6)
-    });
+      .subscribe(response => {
+        this.cardsTotal = this.cardsTotal.concat(response.data.results);
+        this.cards = this.cardsTotal.slice(this.start, this.end)
+      });
+  }
+  getMaxPages() {
+    this.maxPages = Math.ceil(this.total / 6);
+    console.log(this.maxPages);
+  }
+  restartPages() {
+    this.index = 1
+    this.start = 0;
+    this.end = 6;
   }
 }

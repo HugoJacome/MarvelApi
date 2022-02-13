@@ -19,6 +19,11 @@ export interface HeroesDataMarvel {
     series: Series;
     stories: Stories;
     events: Events;
+    thumbnail: Thumbnail;
+}
+export interface Thumbnail{
+    extension: string;
+    path: string;
 }
 export interface Comics{
     available: number;
