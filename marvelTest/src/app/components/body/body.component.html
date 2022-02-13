@@ -1,11 +1,16 @@
+<div class="search">
+  <app-search-component (submitted)="searchHeroes($event)"></app-search-component>
+</div>
 <div class="grid-container">
-    <ng-container>
-      <mat-grid-list cols="3" rowHeight="100px">      
-          <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
-            <ng-template #anchorTemplate>
-              <a mat-raised-button>{{card.title}}</a>
-            </ng-template>
-          </mat-grid-tile>      
-      </mat-grid-list>
-    </ng-container>
+  <ng-container>
+    <mat-grid-list cols="3" rowHeight="250px">
+      <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
+        <a mat-raised-button>{{card.name}}</a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-container>
+</div>
+<div class="buttons">
+  <button mat-raised-button color="accent" (click)="onPrevious()">Anterior</button>
+  <button mat-raised-button color="accent" (click)="onNext()">Siguiente</button>
 </div>

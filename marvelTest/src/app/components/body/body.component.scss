@@ -1,3 +1,7 @@
+.grid-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 a {
     position: absolute;
     top: 15px;
@@ -9,3 +13,12 @@ a {
     align-items : center;
     justify-content: center;  
   }
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  button{
+    width: 200px;
+    background-color: red;
+  }
+}

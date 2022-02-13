@@ -8,6 +8,7 @@ import { BodyComponent } from './components/body/body.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponentComponent } from './components/body/search-component/search-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
