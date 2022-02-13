@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponentComponent } from './components/body/search-component/search-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../app/state/reducers';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({
+      marvelState: reducers
+    })
   ],
   providers: [],
   exports: [
