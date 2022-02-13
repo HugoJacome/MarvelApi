@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ResponseMarvel } from 'src/app/models/response';
+import { MarvelHeroesService } from 'src/app/service/marvel-heroes.service';
 
 @Component({
   selector: 'app-body',
@@ -6,8 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
-
-  constructor() { }
+  data: any;
   cards = [
     {
       title: 'superhero',
@@ -25,7 +28,13 @@ export class BodyComponent implements OnInit {
       title: 'superhero',
     }
   ];
-  ngOnInit(): void {
+  constructor(private service: MarvelHeroesService) { }
+  ngOnInit() {
+    this.service.getMarvelHeroes()
+    .subscribe(response => {
+      this.data = response;
+      console.log(response);
+    });
   }
 
 }

@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BodyComponent } from './components/body/body.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponentComponent } from './components/body/search-component/search-component.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchComponentComponent } from './components/body/search-component/sea
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   exports: [
