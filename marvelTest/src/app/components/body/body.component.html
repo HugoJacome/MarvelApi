@@ -1,0 +1,31 @@
+<div class="search">
+  <app-search-component (submitted)="searchHeroes($event)"></app-search-component>
+</div>
+<div class="grid-container">
+  <ng-container>
+    <mat-grid-list cols="3" rowHeight="250px">
+      <mat-grid-tile *ngFor="let card of cards" [colspan]="1" [rowspan]="1">
+        <mat-card class="heroes-card">
+          <mat-card-content>
+            <div class="image">
+              <img mat-card-lg-image src={{card.thumbnail.path}}.{{card.thumbnail.extension}} >
+            </div>
+            <div class="content">
+              <mat-card-title-group>
+                <mat-card-title>{{card.name}}</mat-card-title>
+                <mat-card-subtitle>available comics: {{card.comics.available}}</mat-card-subtitle>
+                <mat-card-subtitle>available series: {{card.series.available}}</mat-card-subtitle>
+                <mat-card-subtitle>available stories: {{card.stories.available}}</mat-card-subtitle>
+                <mat-card-subtitle>available events: {{card.events.available}}</mat-card-subtitle>
+              </mat-card-title-group>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </ng-container>
+</div>
+<div class="buttons">
+  <button mat-raised-button color="accent" (click)="onPrevious()">Anterior</button>
+  <button mat-raised-button color="accent" (click)="onNext()">Siguiente</button>
+</div>
