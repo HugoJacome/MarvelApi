@@ -1,5 +1,6 @@
-import { MarvelResponse } from "../models";
+import { ResponseData } from "../models";
 
-export interface AppState{
-    readonly marvelHeroesState: MarvelResponse[];
-}
+// export interface AppState{
+//     readonly marvelHeroesState: ResponseData[];
+// }
+  

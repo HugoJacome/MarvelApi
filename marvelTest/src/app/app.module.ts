@@ -10,7 +10,9 @@ import { SearchComponentComponent } from './components/body/search-component/sea
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from '../app/state/reducers';
+import { searchHeroesReducer } from '../app/state/search-heroes/search-heroes.reducers';
+
+
 
 @NgModule({
   declarations: [
@@ -26,10 +28,9 @@ import { reducers } from '../app/state/reducers';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
     HttpClientModule,
     StoreModule.forRoot({
-      marvelState: reducers
+      marvelState: searchHeroesReducer
     })
   ],
   providers: [],

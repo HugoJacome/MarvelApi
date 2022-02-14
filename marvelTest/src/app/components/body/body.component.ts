@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ResponseDataMarvel } from 'src/app/models/response';
+import { ResponseDataMarvel } from 'src/app/models';
 import { MarvelHeroesService } from 'src/app/service/marvel-heroes.service';
 
 @Component({

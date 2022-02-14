@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import * as MD5 from 'crypto-js/md5';
-import { ResponseData } from '../models/response';
+import { ResponseData } from '../models';
 
 @Injectable({
     providedIn: 'root'
