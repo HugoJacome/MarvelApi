@@ -7,7 +7,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BodyComponent } from './components/body/body.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponentComponent } from './components/body/search-component/search-component.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpMarvelInterceptor } from './interceptor/http-interceptor.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -26,7 +27,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpMarvelInterceptor, multi: true
+    }
+  ],
   exports: [
     MaterialModule
   ],

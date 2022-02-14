@@ -52,9 +52,9 @@ export class BodyComponent implements OnInit {
     this.service.getSearchMarvelHeroes(info)
       .subscribe(response => {
         this.restartPages()
-        this.total = response.data.total;
+        this.total = response.total;
         this.getMaxPages();
-        this.cardsTotal = response.data.results;
+        this.cardsTotal = response.results;
         this.cards = this.cardsTotal.slice(this.start, this.end)
       });
     // this.store.dispatch(new search.Load(info));
@@ -63,22 +63,21 @@ export class BodyComponent implements OnInit {
     this.service.getMarvelHeroes()
       .subscribe(response => {
         console.log(response);
-        this.total = response.data.total;
+        this.total = response.total;
         this.getMaxPages();
-        this.cardsTotal = response.data.results;
+        this.cardsTotal = response.results;
         this.cards = this.cardsTotal.slice(this.start, this.end)
       });
   }
   getNextHeroes(page: number) {
     this.service.getNextMarvelHeroes(page)
       .subscribe(response => {
-        this.cardsTotal = this.cardsTotal.concat(response.data.results);
+        this.cardsTotal = this.cardsTotal.concat(response.results);
         this.cards = this.cardsTotal.slice(this.start, this.end)
       });
   }
   getMaxPages() {
     this.maxPages = Math.ceil(this.total / 6);
-    console.log(this.maxPages);
   }
   restartPages() {
     this.index = 1
