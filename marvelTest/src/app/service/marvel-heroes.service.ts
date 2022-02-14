@@ -14,7 +14,7 @@ export class MarvelHeroesService {
     private ts = new Date().getTime();
     private message = this.ts + environment.pvtkey + environment.pubkey;
     private hash = MD5(this.message);
-    private urlEnd = `?ts=${this.ts}&apikey=${environment.pubkey}&hash=${this.hash}&limit=1`;
+    private urlEnd = `?ts=${this.ts}&apikey=${environment.pubkey}&hash=${this.hash}&limit=30`;
 
 
     constructor(private httpClient: HttpClient) { }
