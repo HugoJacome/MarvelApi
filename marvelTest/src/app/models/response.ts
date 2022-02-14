@@ -14,26 +14,48 @@ export interface ResponseDataMarvel {
 }
 
 export interface HeroesDataMarvel {
+    id: number;
     name: string;
+    description: string;
+    modified: string;
+    resourceURI: string;
     comics: Comics;
     series: Series;
     stories: Stories;
     events: Events;
     thumbnail: Thumbnail;
+    urls: Urls[];
 }
 export interface Thumbnail{
     extension: string;
     path: string;
 }
-export interface Comics{
+export interface AdditionalData{
     available: number;
+    collectionURI: string;
+    returned: number;
+
 }
-export interface Series{
-    available: number;
+export interface Comics extends AdditionalData{
+    items: Items[];
 }
-export interface Stories{
-    available: number;
+export interface Series extends AdditionalData{
+    items: Items[];
 }
-export interface Events{
-    available: number;
+export interface Stories extends AdditionalData{
+    items: ItemsStories[];
+}
+export interface Events extends AdditionalData{
+    items: Items[];
+}
+export interface Urls{
+    type: string;
+    url: string;
+}
+export interface Items{
+    resourceURI: string;
+    name: string;
+}
+export interface ItemsStories extends Items{
+    type: string
 }
